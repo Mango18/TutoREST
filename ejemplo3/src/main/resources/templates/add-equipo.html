@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="#" th:action="@{addequipo}" th:object="${equipo}" method="post">
+    <label for="nombre">Nombre</label>
+    <input type="text" th:field="*{nombre}" id="nombre" placeholder="NOMBRE">
+    <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span>
+    <input type="submit" value="Add Equipo">   
+</form>
+</body>
+</html>

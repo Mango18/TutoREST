@@ -1,0 +1,35 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<div th:switch="${equipos}">
+    <h2 th:case="null">No Equipos</h2>
+        <div th:case="*">
+            <h2>Equipo</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr th:each="equipo : ${equipos}">
+                    <td th:text="${equipo.id}"></td>
+                    <td th:text="${equipo.nombre}"></td>
+                    <td><a th:href="@{edit/{id}(id=${equipo.id})}">Edit</a></td>
+                    <td><a th:href="@{delete/{id}(id=${equipo.id})}">Delete</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>      
+    <p><a th:href="@{showformequipo}">Add nuevo equipo2</a></p>
+</div>
+</body>
+</html>
